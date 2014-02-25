@@ -1,0 +1,61 @@
+/**
+ * Shall be something better, if zoom is set
+ */
+header, footer, main, section, nav, article, menu, figure, figcaption {zoom:1;}
+
+/**
+ * No inherit :(
+ */
+span, small,  i, em, b, strong, time, a, cite, code, q, label {
+	color:expression(this.parentNode.currentStyle['color']);
+	font-size:expression(this.parentNode.currentStyle['font-size']);
+}
+
+/**
+ * I really do not know why
+ */
+ol, ul {zoom:1;}
+
+/**
+ * Because IE7
+ */
+input[type="text"],
+input[type="tel"],
+input[type="password"],
+input[type="email"],
+input[type="file"],
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="number"],
+input[type="range"],
+input[type="search"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+input[type="submit"],
+input[type="button"],
+input[type="rest"],
+select,
+button {line-height: 2em;}
+
+/**
+ * No focus :(
+ */
+button:active,
+textarea:active,
+select:active,
+input:active {outline: 1px solid #0088cc;}
+
+/**
+ * No inline-block :(
+ */
+label, button, input, select, textarea {display: inline; zoom:1;}
+
+.clearfix {zoom:1;}
+
+.width-960 {width:960px;}
+
+.level-iblock {display: inline; zoom:1;}

@@ -1,0 +1,289 @@
+/**
+ * Colors used 
+ * Dark: #353535;
+ * Light: #fafafa;
+ */
+
+/**
+ * 1.1 HTML5 elements reset
+ */
+header, footer, main, section, nav, article, menu, figure, figcaption {display:block;} 
+header, footer, main, section {clear: both;}
+time {display: inline;}
+[hidden] {display:none;}
+
+/**
+ * 1.2 Mouse text selection 
+ */
+::-webkit-selection {background-color:#535353; color:#fafafa;}
+::-moz-selection {background-color:#535353;	color:#fafafa;}
+::selection {background-color:#535353; color:#fafafa;}
+
+/**
+ * 1.3 Default style
+ */
+* {
+	margin:0;
+	padding:0;
+	background:none;
+	outline: none;
+	border:0;
+	color:#353535;
+	font: 13px/1em 'Open Sans', Arial, 'sans-serif', Helvetica, Tahoma, Verdana;
+}
+
+html  {overflow-y: scroll; -webkit-font-smoothing: antialiased; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;}
+body {background-color:#fafafa; overflow-x:hidden;}
+
+/**
+ * 1.4 Inline elements
+ */
+span, small,  i, em, b, strong, time, a, cite, code, q, label, strike, del, s, ins {font:inherit; color:inherit;}
+abbr[title], acronym {border-bottom: 1px dotted; cursor: help;}
+strike, del, s {text-decoration: line-through;}
+ins {background-color: yellow;}
+
+a {text-decoration: none;}
+a:focus {outline: none; text-decoration: underline;}
+
+b, strong {font-weight: 700;}
+i, em, dfn {font-style: italic;}
+
+sup, sub {font-size: 75%; line-height: 0; position: relative; vertical-align: baseline;}
+sup {top: -.5em;}
+sub {bottom: -.25em;}
+
+code,
+kbd,
+pre,
+samp,
+var {font-family: monospace, monospace;}
+
+/**
+ * 1.5 BLock elements
+ */
+ul, ol, menu {list-style:none;}
+pre {overflow: auto;}
+li {display: block;}
+
+/**
+ * 1.6 Forms
+ * Buttons and text fields are set to height 2em with border and paggind excluded from the height
+ * \/ *  $1, $2 ->anchors for setting height * \/
+ */
+button {overflow: auto;}
+label {cursor: pointer;}
+input {line-height: normal;}
+textarea {resize: vertical; min-height: 2em; max-height: 20em; overflow: auto;}
+select optgroup {font-weight: bold;}
+select optgroup option {padding-left: .7em;}
+
+button,
+select {text-transform: none;}
+
+button,
+html input[type="button"],
+input[type="reset"],
+input[type="submit"] {-webkit-appearance: button; cursor: pointer;}
+
+button[disabled],
+html input[disabled] {cursor: default;}
+
+button::-moz-focus-inner,
+input::-moz-focus-inner {border: 0; padding: 0;}
+
+input[type="number"]::-webkit-inner-spin-button,
+input[type="number"]::-webkit-outer-spin-button {height: auto;}
+
+input[type="search"] {-webkit-appearance: textfield;}
+
+input[type="search"]::-webkit-search-decoration,
+input[type="search"]::-webkit-search-cancel-button {-webkit-appearance: none;}
+
+input[type="text"],
+input[type="tel"],
+input[type="password"],
+input[type="email"],
+input[type="file"],
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="number"],
+input[type="range"],
+input[type="search"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+input[type="submit"],
+input[type="button"],
+input[type="rest"],
+select,
+button {height: 2em; /* $1 */ background-color: orange; padding-left: 5px; padding-right: 5px;/* $2 */}
+
+select {padding-top:4px;/* $2 */ padding-bottom: 3px;/* $2 */ padding-right: 4px;/* $2 */ }
+
+input[type="text"],
+input[type="tel"],
+input[type="password"],
+input[type="email"],
+input[type="file"],
+input[type="color"],
+input[type="date"],
+input[type="datetime"],
+input[type="datetime-local"],
+input[type="month"],
+input[type="number"],
+input[type="range"],
+input[type="search"],
+input[type="time"],
+input[type="url"],
+input[type="week"],
+input[type="submit"],
+input[type="button"],
+input[type="rest"],
+select,
+button,
+textarea {border:1px solid black;/* $2 */}
+
+label, button, input, select, textarea {display:inline-block; vertical-align: middle; -moz-box-sizing:border-box; -webkit-box-sizing:border-box;-ms-box-sizing:border-box;-khtml-box-sizing:border-box;-o-box-sizing:border-box;box-sizing:border-box;}
+
+
+/**
+ * 1.6.1 Default style for form elements
+ */
+
+input,
+select,
+textarea,
+button {background-color: white;}
+
+button:focus,
+textarea:focus,
+select:focus,
+input:focus {border-color:#0088cc;}
+
+input::-moz-ui-invalid,
+input:invalid {box-shadow: none;}
+
+/**
+ * 1.7 Tables
+ */
+table {border-collapse: collapse; border-spacing: 0; width: 100%;}
+
+
+input, textarea, select, button {
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+	-o-box-sizing:border-box;
+	-ms-box-sizing:border-box;
+	-khtml-box-sizing:border-box;
+	box-sizing:border-box;
+}
+
+
+
+/**
+ * 1.8 Useful classes
+ */
+.clear {clear: both;}
+.clearfix:before,
+.clearfix:after {content: " "; display: table;}
+.clearfix:after {clear: both;}
+
+.text-left {text-align: left;}
+.text-right {text-align: right;}
+.text-center {text-align: center;}
+.text-justify {text-align: justify;}
+
+.text-uppercase {text-transform: uppercase;}
+.text-lowercase {text-transform: lowercase;}
+
+.text-thin {font-weight: 300;}
+.text-bold {font-weight:700;}
+.text-bolder {font-weight: 800;}
+.text-italic {font-style: italic;}
+.text-notext {font-size: 0; line-height: 0;}
+
+.font-09 {font-size: .9em;}
+.font-08 {font-size: .8em;}
+.font-075 {font-size: .75em;}
+.font-1 {font-size: 1em;}
+.font-11 {font-size: 1.1em;}
+.font-12 {font-size: 1.2em;}
+.font-13 {font-size: 1.3em;}
+.font-14 {font-size: 1.4em;}
+.font-15 {font-size: 1.5em;}
+.font-16 {font-size: 1.6em;}
+.font-17 {font-size: 1.7em;}
+.font-18 {font-size: 1.8em;}
+.font-19 {font-size: 1.9em;}
+.font-2 {font-size: 2em;}
+
+.relative {position: relative;}
+.absolute {position: absolute;}
+.fixed {position: fixed;}
+
+.width-full {width: 100%;}
+.width-960 {max-width:960px;}
+
+.block-center {margin: 0 auto;}
+.pull-left {float: left;}
+.pull-right {float: right;}
+
+.level-inline {display: inline;}
+.level-iblock {display: inline-block;}
+.level-block {display: block;}
+
+.valign-top {vertical-align: top;}
+.valign-bottom {vertical-align: bottom;}
+.valign-middle {vertical-align: middle;}
+
+/**
+ * 1.8.1 very specific classes for tools
+ */
+.border-box {-moz-box-sizing:border-box; -webkit-box-sizing:border-box;-ms-box-sizing:border-box;-o-box-sizing:border-box;box-sizing:border-box;}
+.sr-only {position: absolute; width: 1px; height: 1px; padding: 0; margin: -1px; overflow: hidden; clip: rect(0, 0, 0, 0); border: 0;}
+.no-js-hide {display: none;}
+[data-action] {cursor: pointer;}
+
+.cursor-pointer {position: relative;}
+
+/**
+ * 1.9 
+ */
+.mceContentBody * {line-height: 1.45em;}
+
+.mceContentBody p { margin-bottom:.8em;}
+.mceContentBody li {display: list-item;}
+.mceContentBody h1 {font-size: 27px; margin-top: .7em;}
+.mceContentBody h2 {font-size: 23px; margin-top: 1em;}
+.mceContentBody h3 {font-size: 19px;}
+.mceContentBody h4 {font-size: 15px;}
+.mceContentBody h5 {font-size: 13px;}
+.mceContentBody h6 {font-size: 11px;}
+
+.mceContentBody h1,
+.mceContentBody h2,
+.mceContentBody h3,
+.mceContentBody h4,
+.mceContentBody h5,
+.mceContentBody h6 {margin-top: 1em; margin-bottom: .2em;}
+
+.mceContentBody table th,
+.mceContentBody table td {text-align: left; padding: .7em 1em;}
+
+.mceContentBody table th {font-weight: 700;}
+.mceContentBody table td {border-top:1px solid #eee;}
+
+.mceContentBody dl {padding: 0 40px;}
+.mceContentBody dl dt {font-weight: 700; font-size: 1.1em; margin-bottom: .3em;}
+.mceContentBody dl dd {line-height: 1.5em; margin-bottom: 1.5em;}
+
+.mceContentBody ul {padding-left: 1.85em; list-style-type: disc; margin-top: .5em; list-style-position: inside;}
+.mceContentBody ul li {text-indent: -1em; margin-bottom: .5em;}
+
+.mceContentBody ol {padding-left: 2em; list-style-type: decimal; margin-top: .5em; list-style-position: outside}
+.mceContentBody > ol {padding-left: 3em;}
+.mceContentBody ol li { margin-bottom: .5em;}
