@@ -55,7 +55,6 @@ jQuery(document).ready(function($)
 {
 	$('body').removeClass('no-js').addClass('yes-js');
 
-	$('.js-hide').hide();
 	$('.js-show').show();
 	
 

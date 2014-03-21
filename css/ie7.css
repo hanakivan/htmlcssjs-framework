@@ -52,10 +52,7 @@ input:active {outline: 1px solid #0088cc;}
 /**
  * No inline-block :(
  */
-label, button, input, select, textarea {display: inline; zoom:1;}
+label, button, input, select, textarea,
+.level-iblock {display: inline; zoom:1;}
 
 .clearfix {zoom:1;}
-
-.width-960 {width:960px;}
-
-.level-iblock {display: inline; zoom:1;}
