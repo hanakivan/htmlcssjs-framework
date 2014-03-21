@@ -244,7 +244,7 @@ table {border-collapse: collapse; border-spacing: 0; width: 100%;}
 .width-960 {width:960px;}
 
 @media screen and (min-width:1px) {
-	.width-960 {max-width:960px; width: auto;	
+	.width-960 {max-width:960px; width: auto;}	
 }
 
 .block-center {margin: 0 auto;}
