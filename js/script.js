@@ -1,15 +1,48 @@
-jQuery(document).ready(function($)
+var Element = function(selector, params)
 {
-	$('body').removeClass('no-js');
-	$('.js-hide').hide();
-	$('.js-show').show();
+	var element = $('<' + selector + '/>');
 
-	var T = {
+	$.each(params, function(action, value) {
+
+		switch( action ) {
+			case 'class':
+				element.addClass(value);
+				break;
+			case 'className':
+				element.addClass(value);
+				break;
+			case 'selected':
+				element.prop('selected', true);
+				break;
+			case 'checked':
+				element.prop('checked', true);
+				break;
+			case 'text':
+				element.text( value )
+				break;
+			case 'html':
+				element.html( value )
+				break;
+			case  'id':
+				element.attr('id', value);
+				break;
+			case  'hide':
+				element.hide();
+				break;
+			default:
+				element.attr(action, value);
+				break;
+		}
+	});
+	return element;
+}
+
+var T = {
 		get: function(translation) {
-			return this.getInLang(translation, siteLang);
+			return this.getInLang(translation, lang);
 		},
-		getInLang: function(translation, lang) {
-			var translated_string = js_translations[lang][translation];
+		getInLang: function(translation, from_lang) {
+			var translated_string = js_translations[from_lang][translation];
 
 			if(typeof translated_string !== 'undefined')
 				return translated_string;
@@ -18,43 +51,15 @@ jQuery(document).ready(function($)
 		}
 	}
 
-	var Element = function(selector, params)
-	{
-		var element = $('<' + selector + '/>');
+jQuery(document).ready(function($)
+{
+	$('body').removeClass('no-js').addClass('yes-js');
 
-		$.each(params, function(action, value) {
+	$('.js-hide').hide();
+	$('.js-show').show();
+	
 
-			switch( action ) {
-				case 'class':
-					element.addClass(value);
-					break;
-				case 'selected':
-					element.prop('selected', true);
-					break;
-				case 'checked':
-					element.prop('checked', true);
-					break;
-				case 'text':
-					element.text( value )
-					break;
-				case 'html':
-					element.html( value )
-					break;
-				case  'id':
-					element.attr('id', value);
-					break;
-				case  'hide':
-					element.hide();
-					break;
-				default:
-					element.attr(action, value);
-					break;
-			}
-		});
-		return element;
-	}
-
-	var Dialog = function( )
+	/*var Dialog = function( )
 	{
 		var self = this;
 
@@ -158,5 +163,5 @@ jQuery(document).ready(function($)
 		}
 
 		self.open();
-	}
+	}*/
 });
