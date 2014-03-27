@@ -7,7 +7,7 @@
 /**
  * 1.1 HTML5 elements reset
  */
-header, footer, main, section, nav, article, menu, figure, figcaption {display:block;} 
+header, footer, main, section, nav, article, menu, aside, figure, figcaption {display:block;}
 header, footer, main, section {clear: both;}
 time {display: inline;}
 [hidden] {display:none;}
@@ -91,7 +91,7 @@ q:after {content: ""; content: none;}
  * Buttons and text fields are set to height 2em with border and paggind excluded from the height
  * \/ *  $1, $2 ->anchors for setting height * \/
  */
-button {overflow: auto;}
+button {overflow: visible;}
 label {cursor: pointer;}
 input {line-height: normal;}
 textarea {resize: vertical; min-height: 2em; max-height: 20em; overflow: auto;}
