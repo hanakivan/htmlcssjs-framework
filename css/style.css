@@ -30,6 +30,7 @@ time {display: inline;}
 	border:0;
 	color:#353535;
 	font: 13px/1em 'Open Sans', Arial, 'sans-serif', Helvetica, Tahoma, Verdana;
+    vertical-align: top;
 }
 
 html  {overflow-y: scroll; -webkit-font-smoothing: antialiased; -ms-text-size-adjust: 100%; -webkit-text-size-adjust: 100%;}
@@ -39,6 +40,7 @@ body {background-color:#fafafa; overflow-x:hidden;}
  * 1.4 Inline elements
  */
 span, small,  i, em, b, strong, time, a, cite, code, q, label, strike, del, s, ins {font:inherit; color:inherit;}
+small {font-size: smaller;}
 abbr[title], acronym {border-bottom: 1px dotted; cursor: help;}
 strike, del, s {text-decoration: line-through;}
 ins {background-color: yellow;}
@@ -55,16 +57,34 @@ sub {bottom: -.25em;}
 
 code,
 kbd,
-pre,
+tt,
+var,
 samp,
-var {font-family: monospace, monospace;}
+pre {font-family: monospace, serif; line-height: 1.4;}
+
+img {height: auto; vertical-align: middle;}
 
 /**
  * 1.5 BLock elements
  */
 ul, ol, menu {list-style:none;}
-pre {overflow: auto;}
 li {display: block;}
+
+pre {overflow: auto; white-space: pre; white-space: pre-wrap; word-wrap: break-word;}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+p {clear: both;}
+
+blockquote, q {quotes: none;}
+blockquote:before,
+blockquote:after,
+q:before,
+q:after {content: ""; content: none;}
 
 /**
  * 1.6 Forms
@@ -276,7 +296,7 @@ body.yes-js .js-hide {display: none;}
  * 1.9 
  */
 .mceContentBody,
-.mceContentBody * {line-height: 1.45em;}
+.mceContentBody * {line-height: 1.45; vertical-align: baseline}
 
 .mceContentBody p { margin-bottom:.8em;}
 .mceContentBody li {display: list-item;}
