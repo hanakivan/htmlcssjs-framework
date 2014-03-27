@@ -8,7 +8,7 @@ header, footer, main, section, nav, article, menu, figure, figcaption {zoom:1;}
  */
 span, small,  i, em, b, strong, time, a, cite, code, q, label {
 	color:expression(this.parentNode.currentStyle['color']);
-	font-size:expression(this.parentNode.currentStyle['font-size']);
+	font:expression(this.parentNode.currentStyle['font']);
 }
 
 /**
