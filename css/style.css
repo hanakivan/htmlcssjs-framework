@@ -185,15 +185,16 @@ form :invalid {box-shadow: none;}
 table {border-collapse: collapse; border-spacing: 0; width: 100%;}
 
 
-
-
 /**
  * 1.8 Useful classes
  */
 .clear {clear: both;}
 .clearfix:before,
-.clearfix:after {content: " "; display: table;}
-.clearfix:after {clear: both;}
+.clearfix:after,
+.layout-row:before,
+.layout-row:after {content: " "; display: table;}
+.clearfix:after,
+.layout-row:after {clear: both;}
 
 .text-left {text-align: left;}
 .text-right {text-align: right;}
@@ -251,13 +252,7 @@ table {border-collapse: collapse; border-spacing: 0; width: 100%;}
 .relative {position: relative;}
 .absolute {position: absolute;}
 .fixed {position: fixed;}
-
-.width-full {width: 100%;}
-.width-960 {width:960px;}
-
-@media screen and (min-width:1px) {
-	.width-960 {max-width:960px; width: auto;}	
-}
+.static {position: static;}
 
 .block-center {margin: 0 auto;}
 .pull-left {float: left;}
@@ -280,6 +275,56 @@ table {border-collapse: collapse; border-spacing: 0; width: 100%;}
 body.no-js .no-js-hide,
 body.yes-js .js-hide {display: none;}
 
-[data-action] {cursor: pointer;}
-
+[data-action],
 .cursor-pointer {cursor:pointer;}
+.cursor-default {cursor: default;}
+.cursor-help {cursor: help;}
+.cursor-wait {cursor: wait;}
+
+
+/**
+ * Layout
+ */
+.layout-row {} /** floats cleared **/
+
+/** base class for layout cell **/
+.layout-cell {}
+.layout-cell-fluid {}
+.layout-cell-strict {}
+
+/** human readable format **/
+/** should have another class [layout-cell-fluid] **/
+.layout-cell-fluid-full {width: 100%;}
+.layout-cell-fluid-half {width: 50%;}
+.layout-cell-fluid-third {width: 33.3333%;}
+.layout-cell-fluid-quarter {width: 25%;}
+.layout-cell-fluid-fifth {width: 20%;}
+/** percentage format **/
+.layout-cell-fluid-5 {width: 5%;}
+.layout-cell-fluid-10 {width: 10%;}
+.layout-cell-fluid-15 {width: 15%;}
+.layout-cell-fluid-20 {width: 20%;}
+.layout-cell-fluid-25 {width: 25%;}
+.layout-cell-fluid-30 {width: 30%;}
+.layout-cell-fluid-35 {width: 35%;}
+.layout-cell-fluid-40 {width: 40%;}
+.layout-cell-fluid-45 {width: 45%;}
+.layout-cell-fluid-50 {width: 50%;}
+.layout-cell-fluid-55 {width: 55%;}
+.layout-cell-fluid-60 {width: 60%;}
+.layout-cell-fluid-65 {width: 65%;}
+.layout-cell-fluid-70 {width: 70%;}
+.layout-cell-fluid-75 {width: 75%;}
+.layout-cell-fluid-80 {width: 80%;}
+.layout-cell-fluid-85 {width: 85%;}
+.layout-cell-fluid-90 {width: 90%;}
+.layout-cell-fluid-95 {width: 95%;}
+.layout-cell-fluid-100 {width: 100%;}
+
+/** strict format **/
+/** should have another class [layout-cell-strict] **/
+.layout-cell-strict-960 {width: 960px;}
+.layout-cell-strict-1024 {width: 1024px;}
+.layout-cell-strict-1280 {width: 1280px;}
+.layout-cell-strict-1440 {width: 1440px;}
+.layout-cell-strict-1600 {width: 1600px;}

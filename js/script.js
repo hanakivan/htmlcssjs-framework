@@ -38,24 +38,26 @@ var Element = function(selector, params)
 }
 
 var T = {
-		get: function(translation) {
-			return this.getInLang(translation, lang);
-		},
-		getInLang: function(translation, from_lang) {
-			var translated_string = js_translations[from_lang][translation];
+    get: function(translation) {
+        return this.getInLang(translation, lang);
+    },
+    getInLang: function(translation, from_lang) {
+        var translated_string = js_translations[from_lang][translation];
 
-			if(typeof translated_string !== 'undefined')
-				return translated_string;
+        if(typeof translated_string !== 'undefined')
+            return translated_string;
 
-			return "";
-		}
-	}
+        return "";
+    }
+}
 
 jQuery(document).ready(function($)
 {
 	$('body').removeClass('no-js').addClass('yes-js');
 
 	$('.js-show').show();
+
+    fixIePlaceholder();
 	
 
 	/*var Dialog = function( )
@@ -163,4 +165,35 @@ jQuery(document).ready(function($)
 
 		self.open();
 	}*/
+
+    //should be in a jquery scope
+    function fixIePlaceholder() {
+        var fields = arguments[0] || $('.ie7 [placeholder], .ie8 [placeholder], .ie9 [placeholder]'),
+            field,
+            fieldVal = "",
+            placeholderVal;
+
+        fields.each(function(){
+            field = $(this);
+            placeholderVal = field.attr('placeholder');
+
+            field.val( placeholderVal );
+        });
+
+        fields.on('focus', function(){
+            field = $(this);
+            fieldVal = field.val();
+            placeholderVal = field.attr('placeholder');
+
+            if(placeholderVal == fieldVal)
+                field.val('');
+        }).on('blur', function(){
+            field = $(this);
+            fieldVal = field.val();
+            placeholderVal = field.attr('placeholder');
+
+            if(fieldVal == '')
+                field.val( placeholderVal );
+        });
+    }
 });

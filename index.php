@@ -1,7 +1,8 @@
 <!DOCTYPE html>
 <!--[if IE 7]><html lang="sk-SK" class="ie7"><![endif]-->
 <!--[if IE 8]><html lang="sk-SK" class="ie8"><![endif]-->
-<!--[if gt IE 8]><!--><html lang="sk-SK"><!--<![endif]-->
+<!--[if IE 9]><html lang="sk-SK" class="ie9"><![endif]-->
+<!--[if gt IE 9]><!--><html lang="sk-SK"><!--<![endif]-->
 	<head>
 		<meta charset="utf-8">
 		<title>Framework</title>
@@ -86,7 +87,7 @@
                 <legend>I am a form with a fieldset and a legend inside it</legend>
                 <p>
                     <label for="a">I am label for an input</label>
-                    <input type="text" id="a">
+                    <input type="text" id="a" placeholder="I am placehlder">
                 </p>
                 <p>
                     <label for="b">Label for a select</label>
