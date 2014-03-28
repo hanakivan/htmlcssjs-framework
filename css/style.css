@@ -94,9 +94,8 @@ q:after {content: ""; content: none;}
 button {overflow: visible;}
 label {cursor: pointer;}
 input {line-height: normal;}
-textarea {resize: vertical; min-height: 2em; max-height: 20em; overflow: auto;}
+textarea {resize: vertical; overflow: auto;}
 select optgroup {font-weight: bold;}
-select optgroup option {padding-left: .7em;}
 
 button,
 select {text-transform: none;}
@@ -178,6 +177,9 @@ select:focus,
 input:focus {border-color:#0088cc;}
 
 form :invalid {box-shadow: none;}
+
+select optgroup option {padding-left: .7em;}
+textarea {min-height: 2em; max-height: 20em;}
 
 /**
  * 1.7 Tables
