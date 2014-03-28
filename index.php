@@ -10,6 +10,7 @@
 
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,800,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/mceContentBody.css">
 		<!--[if IE 7]><link rel="stylesheet" href="css/ie7.css"><![endif]-->
 		<!--[if IE 8]><link rel="stylesheet" href="css/ie8.css"><![endif]-->
 
@@ -33,7 +34,6 @@
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
-		<link rel='canonical' href='http://www.trogirciovo.eu/en/' />
 		<meta name="apple-mobile-web-app-capable" content="yes">
 
 		<link rel="apple-touch-icon" href="img/touch-icon-iphone.png">
@@ -48,20 +48,24 @@
 			<p>Use this static Page to test the Theme’s handling of the Front Page template file. </p>
 			<p>If the site is set to display the Blog Posts Index as the Front Page, then this text should not be visible. If the site is set to display a static Page as the Front Page, then this text may or may not be visible. If the Theme does not include a front-page.php template file, then this text should appear on the Front Page when set to display a static Page. If the Theme does include a front-page.php template file, then this text may or may not appear.</p>
 			<p><strong>I am strong</strong></p>
-			
-			<h1>I am heading 1</h1>
+
+            <p>afdf<img src="http://triad.sk/gfx/images/mail/logo.jpg"></p>
+            <p>afdh dfg hdfh gfd df<img src="http://upload.wikimedia.org/wikipedia/en/f/f2/Seesmic_Logo.png"></p>
+
+			<h1>I am heading 1<img src="http://triad.sk/gfx/images/mail/logo.jpg"> </h1>
 			<h2>I am heading 2</h2>
 			<h3>I am heading 3</h3>
-			<h4>I am heading 4</h4>
+			<h4>I am he>I am heading 4>I am heading 4>I am heading 4>I am heading 4>I am heading 4>I am heading 4>I am heading 4>I am heading 4>I am heading 4>I am heading 4>I am heading 4>I am heading 4>I am heading 4>I am heading 4>I am heading 4>I am heading 4>I am heading 4>I am heading 4>I am heading 4>I am heading 4ading 4</h4>
 			<h5>I am heading 5</h5>
 			<h6>I am heading 6</h6>
 
-			<h1><strong>I am heading 1</strong></h1>
+			<h1><strong>I am heading 1I am heading 1I am heading 1I am heading 1I am heading 1I am heading 1I am heading 1I am heading 1I am heading 1I am heading 1I am heading 1I am heading 1I am heading 1I am heading 1I am heading 1I am heading 1I am heading 1I am heading 1I am heading 1I am heading 1I am heading 1I am heading 1I am heading 1I am heading 1I am heading 1I am heading 1I am heading 1I am heading 1I am heading 1I am heading 1I am heading 1I am heading 1I am heading 1I am heading 1I am heading 1I am heading 1I am heading 1I am heading 1I am heading 1I am heading 1I am heading 1I am heading 1</strong></h1>
 			<h2><strong>I am heading 2</strong></h2>
+			<h2><strong><a href="#">I am heading 2 with anchor</a></strong></h2>
 			<h3><strong>I am heading 3</strong></h3>
-			<h4><strong>I am heading 4</strong></h4>
+			<h4><strong>I am heading 4>I am heading 4>I am heading 4>I am heading 4>I am heading 4>I am heading 4>I am heading 4>I am heading 4>I am heading 4>I am heading 4>I am heading 4</strong></h4>
 			<h5><strong>I am heading 5</strong></h5>
-			<h6><strong>I am heading 6</strong></h6>
+            <h6><strong>I am heading 6</strong></h6>
 
 			<h1><span class="text-thin">I am heading 1</span></h1>
 			<h2><span class="text-thin">I am heading 2</span></h2>

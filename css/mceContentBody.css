@@ -1,0 +1,37 @@
+.mceContentBody,
+.mceContentBody * {line-height: 1.45;}
+
+.mceContentBody a:hover {text-decoration: underline;}
+
+.mceContentBody p { margin-bottom:.8em;}
+.mceContentBody li {display: list-item;}
+.mceContentBody h1 {font-size: 27px; margin-top: .7em;}
+.mceContentBody h2 {font-size: 23px; margin-top: 1em;}
+.mceContentBody h3 {font-size: 19px;}
+.mceContentBody h4 {font-size: 15px;}
+.mceContentBody h5 {font-size: 13px;}
+.mceContentBody h6 {font-size: 11px;}
+
+.mceContentBody h1,
+.mceContentBody h2,
+.mceContentBody h3,
+.mceContentBody h4,
+.mceContentBody h5,
+.mceContentBody h6 {margin-top: 1em; margin-bottom: .2em;}
+
+.mceContentBody table th,
+.mceContentBody table td {text-align: left; padding: .7em 1em; vertical-align: middle;}
+
+.mceContentBody table th {font-weight: 700;}
+.mceContentBody table td {border-top:1px solid #eee;}
+
+.mceContentBody dl {padding: 0 40px;}
+.mceContentBody dl dt {font-weight: 700; font-size: 1.1em; margin-bottom: .3em;}
+.mceContentBody dl dd {line-height: 1.5em; margin-bottom: 1.5em;}
+
+.mceContentBody ul {padding-left: 1.85em; list-style-type: disc; margin-top: .5em; list-style-position: inside;}
+.mceContentBody ul li {text-indent: -1.2em; margin-bottom: .5em;}
+
+.mceContentBody ol {padding-left: 2em; list-style-type: decimal; margin-top: .5em; list-style-position: outside}
+.mceContentBody > ol {padding-left: 3em;}
+.mceContentBody ol li { margin-bottom: .5em;}
