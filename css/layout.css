@@ -6,7 +6,8 @@
 .layout-row-responsive {} /** .layout-cell-strict are responsive in here **/
 
 /** base class for layout cell **/
-.layout-cell {}
+.layout-cell {float: left;}
+.layout-cell.layout-cell-noalign {float: none;}
 .layout-cell-fluid {}
 .layout-cell-strict {}
 
