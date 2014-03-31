@@ -11,6 +11,7 @@
 
 		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,800,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
 		<link rel="stylesheet" href="css/style.css">
+		<link rel="stylesheet" href="css/layout.css">
 		<link rel="stylesheet" href="css/mceContentBody.css">
 		<!--[if IE 7]><link rel="stylesheet" href="css/ie7.css"><![endif]-->
 		<!--[if IE 8]><link rel="stylesheet" href="css/ie8.css"><![endif]-->
