@@ -9,16 +9,19 @@
 		<link rel="icon" type="image/png" href="img/favicon.png" sizes="16x16">
 		<!--[if lte IE 10]><link rel="shortcut icon" href="favicon.ico"><![endif]-->
 
-		<link href='http://fonts.googleapis.com/css?family=Open+Sans:400,300,800,700,400italic&subset=latin,latin-ext' rel='stylesheet' type='text/css'>
-		<link rel="stylesheet" href="css/style.css">
-		<link rel="stylesheet" href="css/layout.css">
-		<link rel="stylesheet" href="css/mceContentBody.css">
-		<!--[if IE 7]><link rel="stylesheet" href="css/ie7.css"><![endif]-->
-		<!--[if IE 8]><link rel="stylesheet" href="css/ie8.css"><![endif]-->
+		<link rel="stylesheet" href="css/01reset.css">
+		<link rel="stylesheet" href="css/02style.css">
+		<link rel="stylesheet" href="css/03colors.css">
+		<link rel="stylesheet" href="css/04mceContentBody.css">
+		<link rel="stylesheet" href="css/05helpers.css">
+		<link rel="stylesheet" href="css/06helpers-custom.css">
 
-		<!--[if lte IE 7]><meta http-equiv="imagetoolbar" content="no"><![endif]-->
+        <!--[if IE 7]><link rel="stylesheet" href="css/ie7.css"><![endif]-->
+        <!--[if IE 8]><link rel="stylesheet" href="css/ie8.css"><![endif]-->
 
-		<!--[if lte IE 8]>
+        <!--[if lte IE 7]><meta http-equiv="imagetoolbar" content="no"><![endif]-->
+
+		<!--[if lte IE 9]>
     		<script>
     			document.createElement("main");
 				document.createElement("header");
@@ -45,6 +48,10 @@
 
 	</head>
 	<body role="document" class="no-js">
+        <p>sdfsdgdsfhdgh</p>
+        <p>sdfsdgdsfhdgh</p>
+        <p>sdfsdgdsfhdgh</p>
+        <p>sdfsdgdsfhdgh</p>
         <p>
             <span>I am span</span><br>
             <small>I am small</small><br>
@@ -88,7 +95,12 @@
                 <legend>I am a form with a fieldset and a legend inside it</legend>
                 <p>
                     <label for="a">I am label for an input</label>
-                    <input type="text" id="a" placeholder="I am placehlder">
+                    <input type="text" id="a" placeholder="I am placehlder"><select>
+                        <option>I am option</option>
+                        <optgroup label="I am optgroup">
+                            <option>I am alone in this</option>
+                        </optgroup>
+                    </select>
                 </p>
                 <p>
                     <label for="b">Label for a select</label>
@@ -116,7 +128,11 @@
                     <textarea>I am just textarea and you can write here all you want</textarea>
                 </p>
                 <p>
+                    <input type="text">
+                    <span class="button">I am span button</span>
+                    <a href="#" class="button">I am anchor button</a>
                     <input type="submit" value="I am just submit button">
+                    <input type="email">
                     <button>I am fucking BUTTON</button>
                     <button disabled="disabled">I am fucking disabled</button>
                 </p>

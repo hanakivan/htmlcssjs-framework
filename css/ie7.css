@@ -1,61 +1,45 @@
-/**
- * Shall be something better, if zoom is set
- */
-header, footer, main, section, nav, article, menu, figure, figcaption {zoom:1;}
+/**  Shall be defined before expression inherit  **/
+.mceContentBody,
+.mceContentBody * {color: green;}
 
-/**
- * No inherit :(
- */
-span, small,  i, em, b, strong, time, a, cite, code, q, label {
-	color:expression(this.parentNode.currentStyle['color']);
-	font-size:expression(this.parentNode.currentStyle['font-size']);
-	font-weight-:expression(this.parentNode.currentStyle['font-weight']);
-	font-style:expression(this.parentNode.currentStyle['font-style']);
+html * {
+    line-height: normal;/*IE7 is sort of dfferent from other browsers, when it seems that whereas other browsers set line height to fonr size and still has speca between lines, IE7 has absolutely no space between them*/
+    color:expression(this.parentNode.currentStyle['color']);
+    font-style:expression(this.parentNode.currentStyle['font-style']);
+    font-size:expression(this.parentNode.currentStyle['font-size']);
+    font-weight:expression(this.parentNode.currentStyle['font-weight']);
+    font-family:expression(this.parentNode.currentStyle['font-family']);
 }
 
-/**
- * I really do not know why
- */
-ol, ul {zoom:1;}
+/** IE needs to have 20% more heght on these elements*/
+sup, sub {font-size: 95%;}
 
-/**
- * Because IE7
- */
-input[type="text"],
-input[type="tel"],
-input[type="password"],
-input[type="email"],
-input[type="file"],
-input[type="color"],
-input[type="date"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="month"],
-input[type="number"],
-input[type="range"],
-input[type="search"],
-input[type="time"],
-input[type="url"],
-input[type="week"],
-input[type="submit"],
-input[type="button"],
-input[type="rest"],
+header, footer, main, section, nav, menu, figure, ol, ul {zoom:1;}
+
+label,
+img,
+button,
+.button,
+.level-iblock,
+input,
 select,
-button {line-height: 2em;}
+textarea {display:inline; zoom:1;}
 
-/**
- * No focus :(
- */
-button:active,
-textarea:active,
-select:active,
-input:active {outline: 1px solid #0088cc;}
+.border-box {behavior: url('js/boxsizing.htc');}
 
-/**
- * No inline-block :(
- */
-label, button, input, select, textarea,
-.level-iblock {display: inline; zoom:1;}
+.fade-out {filter: alpha(opacity=0);}
+.fade-in {filter: alpha(opacity=1);}
 
-.clearfix,
-.layout-row {zoom:1;}
+textarea {font-family: sans-serif, Arial;}
+
+input {line-height: 50px;}/** IE7/8 need to have line-height explicitly set with accordance to their height without border width**/
+
+input[type="checkbox"],
+input[type="radio"] {line-height: normal;}/** reset also l/h when IE7/8 **/
+
+input[type="button"],
+input[type="reset"],
+input[type="submit"],
+button {height: 52px;}/** IE7 buttons have border rendered inside them, therefore border width is not added to their height; no need to change l/h **/
+
+.text-notext {text-indent: 0; line-height: 0; font-size: 0;}

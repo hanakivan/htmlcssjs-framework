@@ -1,19 +1,7 @@
-/**
- * Because IE8
- */
-input[type="text"],
-input[type="tel"],
-input[type="password"],
-input[type="email"],
-input[type="file"],
-input[type="color"],
-input[type="date"],
-input[type="datetime"],
-input[type="datetime-local"],
-input[type="month"],
-input[type="number"],
-input[type="range"],
-input[type="search"],
-input[type="time"],
-input[type="url"],
-input[type="week"] {line-height: 2em;}
+input {line-height: 50px;}/** IE7/8 need to have line-height explicitly set with accordance to their height without border width**/
+
+/** IE needs to have 20% more heght on these elements*/
+sup, sub {font-size: 95%;}
+
+.fade-out {filter: alpha(opacity=0);}
+.fade-in {filter: alpha(opacity=1);}

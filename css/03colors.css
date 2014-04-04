@@ -1,0 +1,72 @@
+/**
+ *
+ * A File containing global colors for elements
+ * Do not put here specific colors, would ya?
+ *
+ *
+ * Table of contents
+ *
+ *  1.0 Text selection
+ *  2.0 Root element background color
+ *  3.0 Base element background color
+ *  4.0 Global text color
+ *  5.0 Forms
+ *    5.1 Placeholders
+ *    5.2 Buttons, text fields and select
+ *  6.0 Colors
+ *    6.1 Text colors
+ *    6.2 Background colors
+ */
+
+
+/**
+ * 1.0 Text selection
+ */
+::-webkit-selection {background-color:#535353; color:#fafafa;}
+::-moz-selection {background-color:#535353;	color:#fafafa;}
+::selection {background-color:#535353; color:#fafafa;}
+
+/**
+ * 2.0 Root element background
+ */
+html {background-color: #ffffff}
+
+/**
+ * 3.0 Base element background
+ */
+body {background-color: #ffffff;}
+
+/**
+ * 4.0 Global text color
+ * Set also in ie7.css
+ */
+body {color: green;}
+
+/**
+ * 5.0 Forms
+ */
+
+/** 5.1 Placeholders **/
+::-webkit-input-placeholder {color: red;}
+:-moz-placeholder {color: red;}
+::-moz-placeholder {color: red;}
+:-ms-input-placeholder {color:red;}
+
+/** 5.2 Matching style of buttons, select and text fields **/
+button, .button, input, select {border-color: orange;}
+input[type="checkbox"], input[type="radio"] {background: none;} /** just remove global background on radios and checkboxes **/
+
+input:focus,
+button:focus,
+.button:focus,
+select:focus,
+textarea:focus {border-color:#0088cc;}
+
+/**
+ * 6.0 Colors
+ */
+/** 6.1 text colors **/
+.color-custom {color:white}
+
+/** 6.2 Background colors **/
+.bgcolor-custom {background-color: white;}
