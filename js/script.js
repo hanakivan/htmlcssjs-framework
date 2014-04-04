@@ -5,10 +5,9 @@ var Element = function(selector, params)
 	$.each(params, function(action, value) {
 
 		switch( action ) {
-			case 'class':
-				element.addClass(value);
-				break;
-			case 'className':
+            case 'class':
+            case 'clazz':
+            case 'className':
 				element.addClass(value);
 				break;
 			case 'selected':
@@ -18,10 +17,10 @@ var Element = function(selector, params)
 				element.prop('checked', true);
 				break;
 			case 'text':
-				element.text( value )
+				element.text( value );
 				break;
 			case 'html':
-				element.html( value )
+				element.html( value );
 				break;
 			case  'id':
 				element.attr('id', value);
@@ -37,27 +36,107 @@ var Element = function(selector, params)
 	return element;
 }
 
-var T = {
-    get: function(translation) {
-        return this.getInLang(translation, lang);
+String.prototype.getTranslation = function ()
+{
+    var key = this.toString();
+
+    if(typeof js_translations != "undefined" && typeof js_translations[key] != "undefined")
+        return js_translations[key];
+
+    console.log(key, "is not translated");
+    return "";
+}
+
+function validateEmail(email) {
+    var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
+    return re.test(email);
+}
+
+function fixIePlaceholder( fields ) {
+    var field,
+        fieldVal = "",
+        placeholderVal,
+        className = 'js-input-placeholder';//see css
+
+    fields.each(function(){
+        field = $(this);
+        field.val( field.attr('placeholder') ).addClass(className);
+    });
+
+    fields.on('focus', function(){
+        field = $(this);
+        fieldVal = field.val();
+        placeholderVal = field.attr('placeholder');
+
+        if(placeholderVal == fieldVal)
+            field.val('').removeClass(className);
+    }).on('blur', function(){
+        field = $(this);
+        fieldVal = field.val();
+        placeholderVal = field.attr('placeholder');
+
+        if(fieldVal == '')
+            field.val( placeholderVal ).addClass(className);
+    });
+}
+
+
+var Validate = {
+    invalidClassName: 'invalid',
+    methods: {},
+    field: function (field) {
+        var validationMethod = field.data('method') || field.data('type') || field.attr('type') || false,
+            fieldValidated = false;
+
+        if(!validationMethod)
+            return fieldValidated;
+
+        field.removeClass(Validate.invalidClassName).removeAttr('aria-invalid');
+
+        if(validationMethod in this.methods && this.methods.hasOwnProperty(validationMethod))
+            fieldValidated = this.methods[validationMethod](field);
+
+        if(!fieldValidated)
+            field.addClass(Validate.invalidClassName).attr('aria-invalid', true);
+
+        return fieldValidated;
     },
-    getInLang: function(translation, from_lang) {
-        var translated_string = js_translations[from_lang][translation];
+    form: function ( fields ) {
+        var formValidated = true,
+            fieldValidated = true,
+            field,
+            self = this;
 
-        if(typeof translated_string !== 'undefined')
-            return translated_string;
+        fields.each(function () {
 
-        return "";
+            fieldValidated = self.field( $(this) );
+
+            formValidated = formValidated === true ? fieldValidated : false;
+        });
+
+        return formValidated;
     }
 }
+
+Validate.methods.email = function ()
+{
+    return validateEmail(arguments[0].val());
+}
+
+Validate.methods.numbers = function ( )
+{
+    var re = /^\d+$/;
+    return re.test(arguments[0].val());
+}
+
+
 
 jQuery(document).ready(function($)
 {
 	$('body').removeClass('no-js').addClass('yes-js');
 
-	$('.js-show').show();
 
-    fixIePlaceholder();
+    fixIePlaceholder( $('.ie7 [placeholder], .ie8 [placeholder], .ie9 [placeholder]') );
 	
 
 	/*var Dialog = function( )
@@ -167,33 +246,5 @@ jQuery(document).ready(function($)
 	}*/
 
     //should be in a jquery scope
-    function fixIePlaceholder() {
-        var fields = arguments[0] || $('.ie7 [placeholder], .ie8 [placeholder], .ie9 [placeholder]'),
-            field,
-            fieldVal = "",
-            placeholderVal;
 
-        fields.each(function(){
-            field = $(this);
-            placeholderVal = field.attr('placeholder');
-
-            field.val( placeholderVal );
-        });
-
-        fields.on('focus', function(){
-            field = $(this);
-            fieldVal = field.val();
-            placeholderVal = field.attr('placeholder');
-
-            if(placeholderVal == fieldVal)
-                field.val('');
-        }).on('blur', function(){
-            field = $(this);
-            fieldVal = field.val();
-            placeholderVal = field.attr('placeholder');
-
-            if(fieldVal == '')
-                field.val( placeholderVal );
-        });
-    }
 });

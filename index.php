@@ -167,12 +167,9 @@
 			var siteLang = 'sk';
 
 			var js_translations = {
-				sk: {
-					close: 'Zavrieť'
-				},
-				en: {
-					close: 'Close'
-				}
+                Close: 'Zavrieť',
+                Open: 'Otvoriť',
+                Remove: 'Odobrať'
 			}
 		</script>
 		

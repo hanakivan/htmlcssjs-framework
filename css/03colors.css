@@ -51,6 +51,7 @@ body {color: green;}
 :-moz-placeholder {color: red;}
 ::-moz-placeholder {color: red;}
 :-ms-input-placeholder {color:red;}
+.js-input-placeholder {color: red;}/*@see js*/
 
 /** 5.2 Matching style of buttons, select and text fields **/
 button, .button, input, select {border-color: orange;}
