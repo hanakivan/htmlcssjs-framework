@@ -129,122 +129,146 @@ Validate.methods.numbers = function ( )
     return re.test(arguments[0].val());
 }
 
+function Dialog( modalId, hasOverlay ) {
+
+    var self = this;
+
+    //node holders
+    self.modal = null;
+    self.overlay = null;
+
+    //abstract methods
+    self.internalOpen = function () {}
+    self.internalClose = function () {}
+
+    //thou shalt call it to display modal
+    self.open = function ()
+    {
+        self.build();
+        self.attachEventListeners();
+        self.internalOpen();
+    }
+
+    //though shalt call it when hiding modal
+    self.close = function ()
+    {
+        self.internalClose();
+        self.destroy();
+    }
+
+    self.build = function ()
+    {
+        $(window.document.body).append(self.helpers.getTemplate() );
+        self.modal = self.helpers.getModal();
+        self.modal.hide();
+
+        if(hasOverlay)
+            self.buildOverlay();
+    }
+
+    self.buildOverlay = function ()
+    {
+        $(window.document.body).append(self.helpers.getOverlayTemplate() );
+        self.overlay = self.helpers.getOverlay();
+        self.overlay.hide();
+    }
+
+    self.destroy = function ()
+    {
+        self.detachEventListeners();
+
+        self.modal.remove();
+
+        if(hasOverlay)
+            self.destroyOverlay();
+    }
+
+    self.destroyOverlay = function ()
+    {
+        self.overlay.remove();
+    }
+
+    self.attachEventListeners = function ()
+    {
+        $(document).on('keyup', self.hideOnEscKeyPress);
+
+        self.helpers.getModal().find('[data-action="close-modal"]').on('click', self.close);
+        self.helpers.getOverlay().on('click', self.close);
+    }
+
+    self.detachEventListeners = function ()
+    {
+        $(document).off('keyup', self.hideOnEscKeyPress);
+
+        self.helpers.getModal().find('[data-action="close-modal"]').off('click', self.close);
+        self.helpers.getOverlay().off('click', self.close);
+    }
+
+    self.hideOnEscKeyPress = function (e)
+    {
+        e.stopPropagation();
+        if(e.keyCode == 27)
+            self.close();
+    }
+
+    self.helpers = {
+        getModal: function () {
+            return $('#modal-dialog-'+modalId);
+        },
+        getOverlay: function () {
+            return $('#modal-overlay-'+modalId);
+        },
+        getTemplate: function () {
+            var template = $('#modal-dialog-template-'+modalId);
+
+            if(!template.length)
+                return '<div id="modal-dialog-'+modalId+'">dialog</div>';
+            return template.html();
+        },
+        getOverlayTemplate: function () {
+            var template = $('#modal-overlay-template-'+modalId);
+
+            if(!template.length)
+                return '<div id="modal-overlay-'+modalId+'">overlay</div>';
+            return template.html();
+        }
+    }
+}
+
+function Login() {}
+Login.prototype = new Dialog('ivan', true);
+Login.prototype.internalOpen = function ()
+{
+    this.overlay.show();
+    this.modal.show();
+}
+var l = new Login();
+l.open();
+
+function ieHTML5() {
+    if(document.documentElement.className.indexOf('ie') !== -1)
+    {
+        document.createElement("main");
+        document.createElement("header");
+        document.createElement("footer");
+        document.createElement("section");
+        document.createElement("article");
+        document.createElement("nav");
+        document.createElement("aside");
+        document.createElement("menu");
+        document.createElement("figcaption");
+        document.createElement("figure");
+        document.createElement("time");
+    }
+}
+
 
 
 jQuery(document).ready(function($)
 {
 	$('body').removeClass('no-js').addClass('yes-js');
 
+    ieHTML5();
 
     fixIePlaceholder( $('.ie7 [placeholder], .ie8 [placeholder], .ie9 [placeholder]') );
-	
-
-	/*var Dialog = function( )
-	{
-		var self = this;
-
-		self.content = arguments[0] || false;
-		self.id = arguments[1] || 'dialog';
-		self.hasOverlay = arguments[2] || false;
-
-		self.open = function()
-		{
-			self.build();
-
-			if(self.hasOverlay)
-			{
-				self.getOverlayNode().fadeIn("fast", function(){
-					self.getDialogNode().fadeIn();
-				});
-			}
-			else
-			{
-				self.getDialogNode().fadeIn();
-			}
-
-			self.events();
-		}
-
-		self.close = function()
-		{
-			if(self.hasOverlay)
-			{
-				self.getDialogNode().fadeOut("fast", function(){
-					self.getOverlayNode().fadeOut("fast", function(){
-						self.destroy();
-					});
-				});
-			}
-			else
-			{
-				self.getDialogNode().fadeOut("fast", function(){
-					self.destroy();
-				});
-			}
-		}
-
-		self.build = function()
-		{
-			if(!self.content)
-				return;
-
-			var documentBody = $('body');
-
-			//documentBody.append( Element.new('div', {id: self.id, html: self.content, hide: true}) );
-			documentBody.append( new Element('div', {id: self.id, html: self.content, hide: true}) );
-
-			if(self.hasOverlay)
-				//documentBody.append( Element.new('div', {id: self.getOverlayNodeId(), hide: true}) );
-				documentBody.append( new Element('div', {id: self.getOverlayNodeId(), hide: true}) );
-
-		}
-
-		self.destroy = function()
-		{
-			self.destroyOverlay();
-			self.destroyDialog();
-		}
-
-		self.destroyOverlay = function()
-		{
-			if(self.hasOverlay)
-				self.getOverlayNode().remove();
-		}
-
-		self.destroyDialog = function()
-		{
-			self.getDialogNode().remove();
-		}
-
-		self.getOverlayNodeId = function()
-		{
-			if(self.hasOverlay)
-				return self.id + '-overlay';
-			return "";
-		}
-
-		self.getOverlayNode = function()
-		{
-			if(self.hasOverlay)
-				return $('#' + self.getOverlayNodeId());
-			return false;
-		}
-
-		self.getDialogNode = function()
-		{
-			return $('#' + self.id);
-		}
-
-		self.events = function()
-		{
-			$('#' + self.id + ' [data-action="close"]').on('click', function(){
-				self.close();
-			});
-		}
-
-		self.open();
-	}*/
-
-    //should be in a jquery scope
-
 });

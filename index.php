@@ -21,21 +21,6 @@
 
         <!--[if lte IE 7]><meta http-equiv="imagetoolbar" content="no"><![endif]-->
 
-		<!--[if lte IE 9]>
-    		<script>
-    			document.createElement("main");
-				document.createElement("header");
-				document.createElement("footer");
-				document.createElement("section");
-				document.createElement("article");
-				document.createElement("nav");
-				document.createElement("aside");
-				document.createElement("menu");
-				document.createElement("figcaption");
-				document.createElement("figure");
-				document.createElement("time");
-			</script>
-		<![endif]-->
 		<meta name="description" content="">
 		<meta name="viewport" content="width=device-width, initial-scale=1.0">
 
