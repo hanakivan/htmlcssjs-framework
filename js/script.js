@@ -193,7 +193,9 @@ function Dialog( modalId, hasOverlay ) {
         $(document).on('keyup', self.hideOnEscKeyPress);
 
         self.helpers.getModal().find('[data-action="close-modal"]').on('click', self.close);
-        self.helpers.getOverlay().on('click', self.close);
+
+        if(hasOverlay)
+            self.helpers.getOverlay().on('click', self.close);
     }
 
     self.detachEventListeners = function ()
@@ -201,7 +203,9 @@ function Dialog( modalId, hasOverlay ) {
         $(document).off('keyup', self.hideOnEscKeyPress);
 
         self.helpers.getModal().find('[data-action="close-modal"]').off('click', self.close);
-        self.helpers.getOverlay().off('click', self.close);
+
+        if(hasOverlay)
+            self.helpers.getOverlay().off('click', self.close);
     }
 
     self.hideOnEscKeyPress = function (e)
