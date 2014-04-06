@@ -1,5 +1,5 @@
 .idea
-/app/conf
+/app/conf/*
 /data/MediaLibrary/*
 /data/RSession/*
 /data/RDataStorage/*
