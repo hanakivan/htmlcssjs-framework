@@ -1,1 +1,10 @@
 .idea
+/app/conf
+/data/MediaLibrary/*
+/data/RSession/*
+/data/RDataStorage/*
+/data/RSmarty/*
+/data/_log/*
+/data/_tmp/*
+/data/HTMLPurifier
+/.htaccess
