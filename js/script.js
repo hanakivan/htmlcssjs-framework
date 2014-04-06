@@ -138,6 +138,9 @@ function Loop(wrapIdAttr, itemClassName, useBullets) {
     self.length = self.helpers.getItems().length;
     self.timeout = null;
 
+    self.hidePromise = null;
+    self.showPromise = null;
+
     //abstract methods
     self.attachEventListenersInternal = function () {};
     self.detachEventListenersInternal = function () {};
@@ -249,11 +252,11 @@ function NewsSlider() {}
 NewsSlider.prototype = new Loop('news-slider', 'news-slider-article', true);
 NewsSlider.animationShowInternal = function ()
 {
-
+    this.hidePromise = this.$current.hide({effect: 'fold', duration: 800, easing: 'easeOutQuad'});
 };
 NewsSlider.animationHideInternal = function ()
 {
-
+    this.showPromise = this.$next.fadeIn();
 };
 var newsSlider = new NewsSlider();
 newsSlider.init();
