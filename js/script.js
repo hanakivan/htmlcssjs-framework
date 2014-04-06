@@ -140,6 +140,8 @@ function Dialog( modalId, hasOverlay ) {
     //abstract methods
     self.internalOpen = function () {}
     self.internalClose = function () {}
+    self.attachEventListenersInternal = function () {}
+    self.detachEventListenersInternal = function () {}
 
     //thou shalt call it to display modal
     self.open = function ()
@@ -196,6 +198,8 @@ function Dialog( modalId, hasOverlay ) {
 
         if(hasOverlay)
             self.helpers.getOverlay().on('click', self.close);
+
+        self.attachEventListenersInternal();
     }
 
     self.detachEventListeners = function ()
@@ -206,6 +210,8 @@ function Dialog( modalId, hasOverlay ) {
 
         if(hasOverlay)
             self.helpers.getOverlay().off('click', self.close);
+
+        self.detachEventListenersInternal();
     }
 
     self.hideOnEscKeyPress = function (e)
