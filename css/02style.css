@@ -2,6 +2,10 @@ body {
     font-size:1.3em;/*13px*/
     font-family: sans-serif, Arial;/*set font also for textarea in IE7*/
 }
+/* You better set static font size here in order to keep a height of he element to be matched with text fields, buttons, …
+select {
+    font-size:13px;
+}*/
 
 /** 66/99 slovak quotation marks **/
 [lang="sk-SK"] q:before {content: "\201E";}
