@@ -16,3 +16,19 @@
     .width-15-strict {width:15px;}
     .width-15-fluid {width:15px;} @media screen and (min-width:1px) { .width-15-fluid {width: auto; max-width: 15px;} }
 **/
+
+/** Margins **/
+/**
+    .offset-strict-10 {margin:10px;}
+    .offset-10 {margin:1.0em;}
+
+    .offset-strict-top-10 {margin-top:10px;}
+    .offset-top-10 {margin-top:1.0em;}
+
+
+    .offset-strict-inner-10 {padding:10px;}
+    .offset-inner-10 {padding:1.0em;}
+
+    .offset-strict-inner-top-10 {padding-top:10px;}
+    .offset-inner-top-10 {padding-top:1.0em;}
+**/
