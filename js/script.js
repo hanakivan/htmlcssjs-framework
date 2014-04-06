@@ -129,6 +129,135 @@ Validate.methods.numbers = function ( )
     return re.test(arguments[0].val());
 }
 
+function Loop(wrapIdAttr, itemClassName, useBullets) {
+    var self = this;
+
+    self.$current = null;
+    self.$next = null;
+
+    self.length = self.helpers.getItems().length;
+    self.timeout = null;
+
+    //abstract methods
+    self.attachEventListenersInternal = function () {};
+    self.detachEventListenersInternal = function () {};
+    self.animationShowInternal = function () {};
+    self.animationHideInternal = function () {};
+
+    self.moveLeftwards = function ()
+    {
+
+    };
+
+    self.moveRightwards = function ()
+    {
+
+    };
+
+    self.moveToFirst = function ()
+    {
+
+    };
+
+    self.moveToLast = function ()
+    {
+
+    };
+
+    self.animation = function ()
+    {
+
+    };
+
+    self.animationShow = function ()
+    {
+        self.animationShowInternal();
+    };
+
+    self.animationHide = function ()
+    {
+        self.animationHideInternal();
+    };
+
+    self.startInterval = function ()
+    {
+        self.stopInterval();
+    };
+
+    self.stopInterval = function ()
+    {
+        try {
+            clearTimeout(self.timeout);
+        }
+        finally {}
+    };
+
+    self.attachEventListeners = function ()
+    {
+        $(document).on('keyup', self.moveOnKeyPress);
+        self.helpers.getWrap().on('mouseenter', self.stopInterval);
+        self.helpers.getWrap().on('mouseleave', self.startInterval);
+
+        self.attachEventListenersInternal();
+    };
+
+    //is it ever going to be used?
+    self.detachEventListeners = function ()
+    {
+        $(document).off('keyup', self.moveOnKeyPress);
+        self.helpers.getWrap().off('mouseenter', self.stopInterval);
+        self.helpers.getWrap().off('mouseleave', self.startInterval);
+
+        self.detachEventListenersInternal();
+    };
+
+    self.moveOnKeyPress = function (e)
+    {
+        switch(e.keyCode) {
+            case 35://end key
+                self.moveToLast();
+                break;
+            case 36://home key
+                self.moveToFirst();
+                break;
+            case 37://left key
+                self.moveLeftwards();
+                break;
+            case 39://right key
+                self.moveRightwards();
+                break;
+        }
+    };
+
+    self.init = function ()
+    {
+        self.startInterval();
+    };
+
+
+    self.helpers = {
+        getWrap: function () {
+            return $('#'+wrapIdAttr);
+        },
+        getItems: function () {
+            return self.helpers.getWrap().find('.'+itemClassName);
+        }
+    }
+}
+
+function NewsSlider() {}
+NewsSlider.prototype = new Loop('news-slider', 'news-slider-article', true);
+NewsSlider.animationShowInternal = function ()
+{
+
+};
+NewsSlider.animationHideInternal = function ()
+{
+
+};
+var newsSlider = new NewsSlider();
+newsSlider.init();
+
 function Dialog( modalId, hasOverlay ) {
 
     var self = this;
