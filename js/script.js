@@ -267,10 +267,10 @@ function Dialog( modalId, hasOverlay ) {
     self.overlay = null;
 
     //abstract methods
-    self.internalOpen = function () {}
-    self.internalClose = function () {}
-    self.attachEventListenersInternal = function () {}
-    self.detachEventListenersInternal = function () {}
+    self.internalOpen = function () {};
+    self.internalClose = function () {};
+    self.attachEventListenersInternal = function () {};
+    self.detachEventListenersInternal = function () {};
 
     //thou shalt call it to display modal
     self.open = function ()
@@ -278,14 +278,14 @@ function Dialog( modalId, hasOverlay ) {
         self.build();
         self.attachEventListeners();
         self.internalOpen();
-    }
+    };
 
     //though shalt call it when hiding modal
     self.close = function ()
     {
         self.internalClose();
         self.destroy();
-    }
+    };
 
     self.build = function ()
     {
@@ -295,14 +295,14 @@ function Dialog( modalId, hasOverlay ) {
 
         if(hasOverlay)
             self.buildOverlay();
-    }
+    };
 
     self.buildOverlay = function ()
     {
         $(window.document.body).append(self.helpers.getOverlayTemplate() );
         self.overlay = self.helpers.getOverlay();
         self.overlay.hide();
-    }
+    };
 
     self.destroy = function ()
     {
@@ -312,12 +312,12 @@ function Dialog( modalId, hasOverlay ) {
 
         if(hasOverlay)
             self.destroyOverlay();
-    }
+    };
 
     self.destroyOverlay = function ()
     {
         self.overlay.remove();
-    }
+    };
 
     self.attachEventListeners = function ()
     {
@@ -329,7 +329,7 @@ function Dialog( modalId, hasOverlay ) {
             self.helpers.getOverlay().on('click', self.close);
 
         self.attachEventListenersInternal();
-    }
+    };
 
     self.detachEventListeners = function ()
     {
@@ -341,14 +341,14 @@ function Dialog( modalId, hasOverlay ) {
             self.helpers.getOverlay().off('click', self.close);
 
         self.detachEventListenersInternal();
-    }
+    };
 
     self.hideOnEscKeyPress = function (e)
     {
         e.stopPropagation();
         if(e.keyCode == 27)
             self.close();
-    }
+    };
 
     self.helpers = {
         getModal: function () {
@@ -380,7 +380,7 @@ Login.prototype.internalOpen = function ()
 {
     this.overlay.show();
     this.modal.show();
-}
+};
 var l = new Login();
 l.open();
 
