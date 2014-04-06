@@ -1,20 +1,20 @@
 /** Font sizes **/
 /**
-    .font-12-strict {font-size:12px;}
+    .font-strict-12 {font-size:12px;}
     .font-12 {font-size:1.2em;}
 **/
 
 /** Line heights **/
 /**
-    .line-15-strict {line-height:15px;}
+    .line-strict-15 {line-height:15px;}
     .line-15 {line-height:1.5em;}
 **/
 
 /** Widths **/
 /**
     .width-15 {width:15%;}
-    .width-15-strict {width:15px;}
-    .width-15-fluid {width:15px;} @media screen and (min-width:1px) { .width-15-fluid {width: auto; max-width: 15px;} }
+    .width-strict-15 {width:15px;}
+    .width-fluid-15 {width:15px;} @media screen and (min-width:1px) { .width-15-fluid {width: auto; max-width: 15px;} }
 **/
 
 /** Margins **/
