@@ -1,51 +1,27 @@
-var Element = function(selector, params)
-{
-	var element = $('<' + selector + '/>');
+String.prototype.replaceAll = function (sfind, sreplace) {
+    var str = this;
+    while (str.indexOf(sfind)>-1) str=str.replace(sfind, sreplace);
+    return str;
+};
 
-	$.each(params, function(action, value) {
+String.prototype.parseObj = function (keys, dataObj) {
 
-		switch( action ) {
-            case 'class':
-            case 'clazz':
-            case 'className':
-				element.addClass(value);
-				break;
-			case 'selected':
-				element.prop('selected', true);
-				break;
-			case 'checked':
-				element.prop('checked', true);
-				break;
-			case 'text':
-				element.text( value );
-				break;
-			case 'html':
-				element.html( value );
-				break;
-			case  'id':
-				element.attr('id', value);
-				break;
-			case  'hide':
-				element.hide();
-				break;
-			default:
-				element.attr(action, value);
-				break;
-		}
-	});
-	return element;
-}
+    var template = this,
+        key;
 
-String.prototype.getTranslation = function ()
-{
-    var key = this.toString();
+    if(keys.length < 1)
+        return "";
 
-    if(typeof js_translations != "undefined" && typeof js_translations[key] != "undefined")
-        return js_translations[key];
+    for(var i = 0, l = keys.length; i < l; i++)
+    {
+        key = keys[i];
 
-    console.log(key, "is not translated");
-    return "";
-}
+        if(key in dataObj && dataObj.hasOwnProperty(key))
+            template = template.replaceAll('%'+key+'%', dataObj[key]);
+    }
+
+    return template;
+};
 
 function validateEmail(email) {
     var re = /^(([^<>()[\]\\.,;:\s@\"]+(\.[^<>()[\]\\.,;:\s@\"]+)*)|(\".+\"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/;
@@ -83,9 +59,13 @@ function fixIePlaceholder( fields ) {
 
 var Validate = {
     invalidClassName: 'invalid',
-    methods: {},
+    methods: {
+        email: function () {
+            return validateEmail(arguments[0].val());
+        }
+    },
     field: function (field) {
-        var validationMethod = field.data('method') || field.data('type') || field.attr('type') || false,
+        var validationMethod = field.data('method') || field.data('type') || field.attr('type') || field.prop('tagName') || false,
             fieldValidated = false;
 
         if(!validationMethod)
@@ -116,18 +96,7 @@ var Validate = {
 
         return formValidated;
     }
-}
-
-Validate.methods.email = function ()
-{
-    return validateEmail(arguments[0].val());
-}
-
-Validate.methods.numbers = function ( )
-{
-    var re = /^\d+$/;
-    return re.test(arguments[0].val());
-}
+};
 
 function Loop(wrapIdAttr, itemClassName, useBullets) {
     var self = this;
@@ -261,7 +230,7 @@ NewsSlider.animationHideInternal = function ()
 var newsSlider = new NewsSlider();
 newsSlider.init();
 
-function Dialog( modalId, hasOverlay ) {
+function Dialog( modalId, hasOverlay, dataObj ) {
 
     var self = this;
 
@@ -278,10 +247,25 @@ function Dialog( modalId, hasOverlay ) {
     //thou shalt call it to display modal
     self.open = function ()
     {
+    	self.reloadInternal();
+
         self.build();
         self.attachEventListeners();
         self.internalOpen();
     };
+
+    //you can oerride it if you want
+    self.reloadInternal = function ()
+    {
+        if(self.helpers.isBuiltModal()) {
+            self.helpers.getModal().remove();
+        }
+
+        if(hasOverlay && self.helpers.isBuiltOverlay()) {
+        	self.helpers.getOverlay().remove();
+        }
+    };
+
 
     //though shalt call it when hiding modal
     self.close = function ()
@@ -292,7 +276,12 @@ function Dialog( modalId, hasOverlay ) {
 
     self.build = function ()
     {
-        $(window.document.body).append(self.helpers.getTemplate() );
+        var template = self.helpers.getTemplate();
+
+        if(typeof dataObj != "undefined" && !$.isEmptyObject(dataObj))
+            template = template.parseObj(dataObj);
+
+        $(window.document.body).append(template);
         self.modal = self.helpers.getModal();
         self.modal.hide();
 
@@ -373,6 +362,12 @@ function Dialog( modalId, hasOverlay ) {
             if(!template.length)
                 return '<div id="modal-overlay-'+modalId+'">overlay</div>';
             return template.html();
+        },
+        isBuiltModal: function () {
+        	return self.helpers.getModal().length > 0;
+        },
+        isBuiltOverlay: function () {
+        	return self.helpers.getOverlay().length > 0;
         }
     }
 }
